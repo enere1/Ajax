@@ -87,7 +87,7 @@ $(document).ready(function(){
     //목록
     $('#btnList').click(function(){
     	console.log('#btnList click');
-    //리스트 안비우면 계속 추가됨
+    	//리스트 안비우면 계속 추가됨
     	$('#list').empty(); 
     //이전페이지 버튼 숨기기
     $('#previousPage').hide();
@@ -119,16 +119,18 @@ $(document).ready(function(){
        			   //이벤트리스너 map에 담긴값 필드 값으로 변경
                    lastPage = parseInt(data.lastPage);
                    console.log('[lastPage]'+lastPage);
+                   
                    //현재페이지>1 커야 이전페이지 등장
                    if(currentPage>1){
-                	  $('#firstPage').show();
-                	  $('#previousPage').show();
+                	   $('#firstPage').show("slow");
+                	   $('#previousPage').show(1000, "linear");
                    }
                    
+                   
                    //현제페이지<lastPage 작아야 보여줌
-           			if(currentPage<lastPage){
-           				$('#lastPage').show();
-           				$('#nextPage').show();
+                   if(currentPage<lastPage){
+                	   $('#nextPage').show("slow");
+                	   $('#lastPage').show(1000,"linear");
            			}
                    	
            			
@@ -158,6 +160,7 @@ $(document).ready(function(){
     $('#firstPage').click(function(){
     	console.log('#firstPage click');
     	currentPage = 1; 
+    	console.log('#currentpage:'+currentPage);
     	$('#btnList').trigger('click');
     })
     
@@ -225,9 +228,9 @@ $(document).ready(function(){
         <tbody id="list">
         </tbody>
     </table> 
-	<button type="button" id="previousPage">이전페이지</button>
-	<button type="button" id="lastPage">마지막페이지</button>
-	<button type="button" id="nextPage">이후페이지</button>
 	<button type="button" id="firstPage">첫페이지</button>
+	<button type="button" id="previousPage">이전페이지</button>
+	<button type="button" id="nextPage">이후페이지</button>
+	<button type="button" id="lastPage">마지막페이지</button>
 </body>
 </html>
