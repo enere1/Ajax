@@ -13,6 +13,9 @@
 		LIMIT #{beginPage}, #{rowPerPage}
 	</select>
 	
+	
+		
+	
 	<select id="cheakId" resultType="cafe.jjdev.ajaxcrud.member.vo.Member">
 		SELECT 
 			id
